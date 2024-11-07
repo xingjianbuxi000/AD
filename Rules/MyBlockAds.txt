@@ -91,6 +91,7 @@ DOMAIN, swallowcrockerybless.com
 DOMAIN, api.zuihuimai.com
 # 数字联盟
 DOMAIN-SUFFIX, shuzilm.cn
+FOMAIN-SUFFIX, uaa.com
 
 # ======= T ======= #
 # 腾讯 无法使用的推送服务
