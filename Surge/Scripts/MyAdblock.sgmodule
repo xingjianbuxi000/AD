@@ -1,0 +1,8 @@
+#起航教育  //开屏广告
+[Map Local]
+^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/advert\/playing\/info data-type=text data="{}" status-code=200
+
+
+
+[MITM]
+hostname = %APPEND% mobile.iqihang.com
