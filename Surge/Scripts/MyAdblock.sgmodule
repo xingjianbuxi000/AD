@@ -3,8 +3,7 @@
 #!category=世路如今已惯
 [Map Local]
 # > 起航教育  //开屏广告
-^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/advert\/playing\/info data-type=text data="{}" status-code=200
-
+^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/advert\/playing\/info data-type=text data=" " status-code=200
 
 
 [MITM]
