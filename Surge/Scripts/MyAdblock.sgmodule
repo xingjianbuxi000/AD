@@ -6,6 +6,10 @@
 ^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/advert\/playing\/info data-type=text data=" " status-code=200
 //邀请好友
 ^https:\/\/mobile\.iqihang\.com\/api\/ark\/app\/v1\/dictionary\/type\/COMMOSSION data-type=text data=" " status-code=200
+//课程推销
+^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/home-recommend\/info-list data-type=text data=" " status-code=200
+
+
 
 [MITM]
 hostname = %APPEND% mobile.iqihang.com
