@@ -1,11 +1,6 @@
-#Talkatone
-DOMAIN-SUFFIX,ads.inmobi.com
-DOMAIN-SUFFIX,tappx.com
-DOMAIN-SUFFIX,criteo.com
-DOMAIN-SUFFIX,pubmatic.com
-DOMAIN-SUFFIX,smaato.net
-DOMAIN-SUFFIX,amazon-adsystem.com
-DOMAIN-SUFFIX,googleads.g.doubleclick.net
-DOMAIN-SUFFIX,adsappier.com
-DOMAIN-SUFFIX,appier.net
-DOMAIN-SUFFIX,appiersig.com
+#哈啰单车
+//首页
+HOST-SUFFIX,resource.51downapp.cn,REJECT
+HOST-SUFFIX,miaowa.hellobike.com,REJECT
+HOST-SUFFIX,res.jhygame.com,REJECT
+HOST-SUFFIX,jhygame.51downapp.cn,REJECT
