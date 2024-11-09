@@ -1,0 +1,11 @@
+
+
+[Map Local]
+# > 首页
+^https:\/\/resource\.51downapp\.cn\/street_cat data-type=text data=" " status-code=200
+^https:\/\/resource\.51downapp\.cn\/home_banner data-type=text data=" " status-code=200
+^https:\/\/m\.hellobike\.com\/resource data-type=text data=" " status-code=200
+
+
+[MITM]
+hostname = %APPEND% resource.51downapp.cn, resource.51downapp.cn, m.hellobike.com
