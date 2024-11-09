@@ -9,7 +9,9 @@
 //课程推销
 ^https:\/\/mobile\.iqihang\.com\/api\/ark\/web\/v1\/home-recommend\/info-list data-type=text data=" " status-code=200
 
+# > 住理
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.common\.gettimestamp data-type=text data="{}" status-code=200
 
 
 [MITM]
-hostname = %APPEND% mobile.iqihang.com
+hostname = %APPEND% mobile.iqihang.com,guide-acs.m.taobao.com
