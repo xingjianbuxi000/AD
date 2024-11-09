@@ -3,11 +3,11 @@
 #!category=世路如今已惯
 
 [RULE]
-DOAMIN-SUFFIX,miaowa.hellobike.com,REJECT
-DOAMIN-SUFFIX,resource.51downapp.cn,REJECT
-DOAMIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT
-DOAMIN-SUFFIX,jhygame.51downapp.cn,REJECT
-DOAMIN-SUFFIX,res.jhygame.com,REJECT
+DOMAIN-SUFFIX,miaowa.hellobike.com,REJECT
+DOMAIN-SUFFIX,resource.51downapp.cn,REJECT
+DOMAIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT
+DOMAIN-SUFFIX,jhygame.51downapp.cn,REJECT
+DOMAIN-SUFFIX,res.jhygame.com,REJECT
 
 
 [Map Local]
