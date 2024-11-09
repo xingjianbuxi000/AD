@@ -2,6 +2,14 @@
 #!desc=MyAdblock
 #!category=世路如今已惯
 
+[RULE]
+DOAMIN-SUFFIX,miaowa.hellobike.com,REJECT
+DOAMIN-SUFFIX,resource.51downapp.cn,REJECT
+DOAMIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT
+DOAMIN-SUFFIX,jhygame.51downapp.cn,REJECT
+DOAMIN-SUFFIX,res.jhygame.com,REJECT
+
+
 [Map Local]
 # > 首页
 ^https:\/\/resource\.51downapp\.cn\/street_cat data-type=text data=" " status-code=200
