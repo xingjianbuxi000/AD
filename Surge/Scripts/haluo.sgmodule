@@ -2,13 +2,6 @@
 #!desc=哈啰去广告
 #!category=世路如今已惯
 
-[RULE]
-DOMAIN-SUFFIX,miaowa.hellobike.com,REJECT
-DOMAIN-SUFFIX,resource.51downapp.cn,REJECT
-DOMAIN-SUFFIX,sf3-fe-tos.pglstatp-toutiao.com,REJECT
-DOMAIN-SUFFIX,jhygame.51downapp.cn,REJECT
-DOMAIN-SUFFIX,res.jhygame.com,REJECT
-
 
 [Map Local]
 # > 首页
