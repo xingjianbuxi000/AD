@@ -14,7 +14,9 @@
 
 # > 学习通首页轮播图
 ^http:\/\/p\.ananas\.chaoxing\.com\/star3 data-type=text data=" " status-code=200
-
+#顶部横幅
+^https:\/\/home-yd\.chaoxing\.com\/apis\/banner\/getConfigInfoForClient url reject-200
+^https:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig url reject-200
 
 [MITM]
-hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com,p.ananas.chaoxing.com
+hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com,p.ananas.chaoxing.com,learn.chaoxing.com,home-yd.chaoxing.com
