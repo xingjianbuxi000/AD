@@ -12,6 +12,9 @@
 # > 住理
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.common\.gettimestamp data-type=text data=" " status-code=200
 
+# > 学习通首页轮播图
+^http:\/\/p\.ananas\.chaoxing\.com\/star3 data-type=text data=" " status-code=200
+
 
 [MITM]
-hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com
+hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com,p.ananas.chaoxing.com
