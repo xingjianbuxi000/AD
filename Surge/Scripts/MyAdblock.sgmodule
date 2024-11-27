@@ -20,5 +20,11 @@
 #旧版首页推荐
 ^https:\/\/appswh\.chaoxing\.com\/apis\/activity data-type=text data=" " status-code=200
 
+# > 小米运动
+^https:\/\/cdn\.cnbj1\.fds\.api\.mi-img\.com\/hlth-operate\/article\/user\/resource data-type=text data=" " status-code=200
+^https:\/\/img\.youpin\.mi-img\.com\/jianyu\/b952db08_f862_401f_9f22_718d47ff47e9\.jpeg data-type=text data=" " status-code=200
+^https:\/\/img\.youpin\.mi-img\.com\/jianyu\/6bc0ee03_2fe7_4e60_bc52_6062a96d8dc1\.jpeg data-type=text data=" " status-code=200
+
+
 [MITM]
-hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com,p.ananas.chaoxing.com,learn.chaoxing.com,home-yd.chaoxing.com,appswh.chaoxing.com
+hostname = %APPEND% mobile.iqihang.com, guide-acs.m.taobao.com,p.ananas.chaoxing.com,learn.chaoxing.com,home-yd.chaoxing.com,appswh.chaoxing.com,cdn.cnbj1.fds.api.mi-img.com,img.youpin.mi-img.com
