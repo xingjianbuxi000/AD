@@ -1,0 +1,5 @@
+# 广告拦截规则
+^https:\/\/m\.10010\.com\/.*\/query\/.*
+^https:\/\/m\.10010\.com\/.*\/scaffold\/.*
+^https:\/\/m\.client\.10010\.com\/.*\/query.*
+^https:\/\/m\.client\.10010\.com\/mobileserviceNine\/api\/v1\/index\/.*
