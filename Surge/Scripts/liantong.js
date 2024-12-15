@@ -1,25 +1,31 @@
-(function() {
-    // 定义需要移除的广告区域选择器
-    const adSelectors = [
-        'div.ad-container', // 替换为实际广告区域的类名或 ID
-        'section[data-type="push"]',
-        '[data-url*="pushservice.10010.com"]',
-        '[data-url*="m.10010.com/mall-order"]',
-        '[data-url*="m.10010.com/mall-access"]',
-        '[data-url*="m.10010.com/decoration-data"]'
-    ];
+(function () {
+    let body = JSON.parse($response.body);
 
-    // 移除广告节点
-    adSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => el.remove());
-    });
+    // 检查响应体是否包含广告数据
+    if (body?.data) {
+        // 清空 listOMOInfo 字段，移除所有广告内容
+        if (body.data.listOMOInfo) {
+            body.data.listOMOInfo = [];
+        }
 
-    // 监听 DOM 变化（处理动态加载的广告区域）
-    const observer = new MutationObserver(() => {
-        adSelectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => el.remove());
-        });
-    });
+        // 移除广告标志
+        if (body.data.omoOpenFlag !== undefined) {
+            body.data.omoOpenFlag = 0; // 关闭广告开关
+        }
 
-    observer.observe(document.body, { childList: true, subtree: true });
+        if (body.data.omoStarRateOpenFlag !== undefined) {
+            body.data.omoStarRateOpenFlag = false; // 禁用星级广告标志
+        }
+
+        if (body.data.refreshSaoMa !== undefined) {
+            body.data.refreshSaoMa = 0; // 清理扫码广告字段
+        }
+
+        if (body.data.omoCarousel !== undefined) {
+            body.data.omoCarousel = 0; // 清除轮播广告标志
+        }
+    }
+
+    // 返回修改后的响应体
+    $done({ body: JSON.stringify(body) });
 })();
