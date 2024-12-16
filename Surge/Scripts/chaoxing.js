@@ -1,33 +1,23 @@
-// 定义屏蔽的关键词
-const blockedKeywords = [
-    "小通活动助手",
-    "同学，学饿了么？快来免费领取饿了么季卡，是免费季卡哦！"
-];
+// 获取请求的 URL
+const url = $request.url;
 
-// 检查并删除包含关键词的区域
-function removeBlockedContent() {
-    // 获取页面中的所有区域或请求返回的内容
-    const elements = document.querySelectorAll("body *"); // 或使用更具体的选择器
-    elements.forEach(element => {
-        if (element.innerText) {
-            const textContent = element.innerText.trim();
-            if (blockedKeywords.some(keyword => textContent.includes(keyword))) {
-                element.remove(); // 删除匹配的区域
-            }
-        }
-    });
+// 判断响应是否有内容
+if (!$response.body) $done({});
+
+// 解析响应体
+let obj = JSON.parse($response.body);
+
+// 仅处理指定 URL
+if (url.includes("/apis/apk/apkInfos.jspx")) {
+  // 检查响应数据结构是否符合
+  if (obj?.msg?.apkInfo?.message) {
+    // 修改底部标签栏说明，去掉“笔记”
+    obj.msg.apkInfo.message = obj.msg.apkInfo.message.replace(
+      /首页、消息、笔记、我的/g,
+      "首页、消息、我的"
+    );
+  }
 }
 
-// 设置一个观察器，监测内容动态加载时进行处理
-const observer = new MutationObserver(() => {
-    removeBlockedContent();
-});
-
-// 观察整个页面的变化
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
-
-// 初始运行一次
-removeBlockedContent();
+// 返回修改后的响应内容
+$done({ body: JSON.stringify(obj) });
