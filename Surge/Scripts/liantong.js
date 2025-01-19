@@ -1,31 +1,38 @@
-(function () {
-    let body = JSON.parse($response.body);
+/**
+ * 去除“专属优惠”相关广告
+ * 适配 Quantumult X 和 Surge
+ * 作者: AI 助手
+ */
 
-    // 检查响应体是否包含广告数据
-    if (body?.data) {
-        // 清空 listOMOInfo 字段，移除所有广告内容
-        if (body.data.listOMOInfo) {
-            body.data.listOMOInfo = [];
-        }
+const isSurge = typeof $httpClient !== "undefined";
+const isQuantumultX = typeof $task !== "undefined";
 
-        // 移除广告标志
-        if (body.data.omoOpenFlag !== undefined) {
-            body.data.omoOpenFlag = 0; // 关闭广告开关
-        }
+// 处理响应函数
+function handleResponse(response) {
+    try {
+        // 将响应体解析为字符串
+        let body = response.body || response.data;
 
-        if (body.data.omoStarRateOpenFlag !== undefined) {
-            body.data.omoStarRateOpenFlag = false; // 禁用星级广告标志
-        }
+        // 匹配并删除专属优惠相关内容
+        body = body.replace(/"专属优惠位置".*?numberList.*?\},/gs, "");
 
-        if (body.data.refreshSaoMa !== undefined) {
-            body.data.refreshSaoMa = 0; // 清理扫码广告字段
-        }
-
-        if (body.data.omoCarousel !== undefined) {
-            body.data.omoCarousel = 0; // 清除轮播广告标志
-        }
+        // 返回修改后的响应
+        return { body };
+    } catch (error) {
+        console.log(`脚本处理响应失败: ${error}`);
+        return response;
     }
+}
 
-    // 返回修改后的响应体
-    $done({ body: JSON.stringify(body) });
-})();
+// 适配 Quantumult X 和 Surge 的主函数
+function main() {
+    if (isQuantumultX) {
+        $done(handleResponse($response));
+    } else if (isSurge) {
+        $done(handleResponse($response));
+    } else {
+        console.log("不支持的运行环境");
+    }
+}
+
+main();
