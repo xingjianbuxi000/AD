@@ -1,38 +1,42 @@
-/**
- * 去除“专属优惠”相关广告
- * 适配 Quantumult X 和 Surge
- * 作者: AI 助手
- */
+// Define a function to remove unwanted ad elements based on the provided structure
+(function() {
+    // This function will be used to remove specific DOM elements by their reference or id
+    function removeAdElements() {
+        // Remove any elements with the class or id that seem related to ads
+        const adElements = [
+            'zsyhLianghao',         // Class/ID related to ad
+            'lianghaoDelete',       // Another class/ID related to ad
+            'zsyhLianghaoDelete',   // Delete stored ad data
+            'zsyhLianghaoDeleteSC'  // Additional ad data deletion
+        ];
 
-const isSurge = typeof $httpClient !== "undefined";
-const isQuantumultX = typeof $task !== "undefined";
-
-// 处理响应函数
-function handleResponse(response) {
-    try {
-        // 将响应体解析为字符串
-        let body = response.body || response.data;
-
-        // 匹配并删除专属优惠相关内容
-        body = body.replace(/"专属优惠位置".*?numberList.*?\},/gs, "");
-
-        // 返回修改后的响应
-        return { body };
-    } catch (error) {
-        console.log(`脚本处理响应失败: ${error}`);
-        return response;
+        // Loop through all ad elements and remove them from the DOM
+        adElements.forEach(elementId => {
+            const adElement = document.getElementById(elementId) || document.querySelector(`.${elementId}`);
+            if (adElement) {
+                adElement.style.display = 'none'; // Hide the element instead of removing it directly
+            }
+        });
     }
-}
 
-// 适配 Quantumult X 和 Surge 的主函数
-function main() {
-    if (isQuantumultX) {
-        $done(handleResponse($response));
-    } else if (isSurge) {
-        $done(handleResponse($response));
-    } else {
-        console.log("不支持的运行环境");
+    // Call the function to remove the ad elements after the page is loaded
+    window.addEventListener('load', removeAdElements);
+    
+    // Additional function to clean up stored data related to ads (optional)
+    function clearAdData() {
+        const adDataKeys = [
+            'zsyhLianghaoDelete',
+            'zsyhLianghaoDeleteSC'
+        ];
+
+        adDataKeys.forEach(key => {
+            if (localStorage.getItem(key)) {
+                localStorage.removeItem(key); // Remove ad-related data from localStorage
+            }
+        });
     }
-}
 
-main();
+    // Clear stored ad data on page load
+    window.addEventListener('load', clearAdData);
+
+})();
